@@ -1,0 +1,55 @@
+{%extends "base.html"%}
+
+{%block title%}
+Home Page
+{%endblock%}
+
+{%block content%}
+{% for i in ip %}
+<div class="container ">
+    <div class="titlee">
+        <h3>{{i.list_name}}</h3>
+    </div>
+    <div class="tot">
+        {% for pl in i.books %}
+        {% if pl.rank == 5 %}
+        {%else%}
+
+        <div class="card caard">
+            <img src="{{pl.book_image}}" id="imag" class="card-img-top img-buy" alt="Loading...." style="height:432px">
+            <div class="card-body">
+                <div style="min-height: 90px;">
+                    <h5 class="med-fs">{{pl.title}} <h6>by
+                            {{pl.author}}</h6>
+                    </h5>
+                </div>
+                <a href="{% url 'root:wishls' pl.primary_isbn13 pl.title %}" id="{{pl.primary_isbn13}}"
+                    data-img="{{pl.book_image}}" class="btn card-btns" name="wishlist"
+                    style="margin-bottom:10px;margin-right:45px;"><i class='bx bxs-heart'></i>
+                    wishlist</a>
+                <a href="{%url 'root:detail' pl.title%}" class="btn btn-dark card-btns"
+                    style="margin-bottom:10px;">Details</a>
+                <br>
+                {%for i in pl.buy_links|slice:":1"%}
+
+                <a href="{{i.url}}" class="btn btn-dark card-btns" style="transform:translateX(78px);">Buy on
+                    amazon</a>
+
+                {%endfor%}
+            </div>
+        </div>
+
+        {%endif%}
+
+        {%endfor%}
+    </div>
+    <br>
+
+</div>
+{%endfor%}
+<script>
+    $("img").on("mouseenter", function () {
+        $("img").attr("src", "something")
+    })
+</script>
+{%endblock%}

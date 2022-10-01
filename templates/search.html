@@ -1,0 +1,41 @@
+{%extends "base.html"%}
+
+{%block title%}
+search page
+{%endblock%}
+
+
+{%block content%}
+
+<div class="container ">
+    <div class="whole">
+        {% for i in queryresults %}
+        <div class="card caard">
+            <img src="{{i.volumeInfo.imageLinks.thumbnail}}" class="card-img-top" alt="Loading...."
+                style="height:432px">
+
+
+
+
+            <div class="card-body">
+                <div style="min-height: 90px;">
+                    <h5 class="med-fs">{{i.volumeInfo.title}} <h6>by
+                            {{i.volumeInfo.authors.0}}</h6>
+                    </h5>
+                </div>
+                <a href="{%url 'root:detail' i.volumeInfo.title%}" class="btn btn-primary card-btns">Details</a>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+
+
+
+
+{%endblock%}
+
+
+
+
+<!--https://www.googleapis.com/books/v1/volumes?q=flowers&key=AIzaSyAJ8nHtE3NlGpfnhN1jTT_0FvC49dyf1bo  -->

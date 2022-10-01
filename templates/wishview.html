@@ -1,0 +1,45 @@
+{%extends "base.html"%}
+
+{%block title%}
+wishlist page
+{%endblock%}
+{%block content%}
+
+
+
+
+
+
+
+<div class="container ">
+    <div class="whole">
+        {%if not dat%}
+        Your wishlist is empty add some
+        {%endif%}
+        {%for data in dat%}
+        <div class="card caard">
+            <img src="{{data.imageurl}}" class="card-img-top" alt="Loading...." style="width:18rem;height:432px">
+            <div class="card-body ">
+                <div style="min-height: 60px;">
+                    <h5 class="med-fs">{{data.title}}
+                    </h5>
+                </div>
+                <a href="{%url 'root:detail3' data.title%}" class="btn btn-primary card-btns ">Details</a>
+                <a href="{%url 'root:remove' data.product%}" class="btn btn-primary card-btns ">Remove </a>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{%endblock%}

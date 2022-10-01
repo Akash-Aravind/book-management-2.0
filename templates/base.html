@@ -1,0 +1,134 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}Default title {%endblock%}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script type="text/javascript" src="/jquery/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{% static 'library2/style.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<body>
+    {%block navbar%}
+    <!-- <h3>Hello {{request.user}}</h3> -->
+    <div class="navbar">
+
+        <div class="quote">
+            <h2 class="quote-text">
+                “The people who are crazy enough to think they can change the world, are the ones who do.”
+                – Steve Jobs
+            </h2>
+        </div>
+
+
+
+
+        <div class="row left-btn">
+            <a href="{%url 'root:home'%}" class="col-4">Home</a>
+            <a href="{%url 'root:wish'%}" class="col-4">Wishlist</a>
+            {%if request.user.is_authenticated %}
+            <a href="{%url 'account_logout'%}" class="col-4"> Logout </a>
+            {%else%}
+            <a href="{%url 'account_login'%}" class="col-4"> Login </a>
+            {%endif%}
+        </div>
+        <div class="row right-btn">
+            <form class="search" method="post" action="{%url 'root:search'%}">
+                {%csrf_token%}
+                <input type="text" placeholder="Search any books..." name="searchtext" class="col-7 rounded">
+                <!-- <a href="#" class="btn col-4">Search</a> -->
+                <input type="submit" class="btn col-4 search-btn" value="Search">
+            </form>
+        </div>
+    </div>
+    {%endblock%}
+    {%block content%}
+    {%endblock%}
+
+    {%block footer%}
+    <footer style="background-color: #363636; color:white;margin-top: 30px;">
+        <div class="footer-cont">
+            designed by &copy;Akash Aravind
+        </div>
+        <div class="icons">
+            <a href="https://www.instagram.com/akash___aravind/" class="fa fa-instagram icon"></a>
+            <a href="https://www.facebook.com/profile.php?id=100068235678930" class="fa fa-facebook icon"></a>
+            <a href="https://twitter.com/akasharavindbro" class="fa fa-twitter icon"></a>
+            <a href="https://github.com/Akash-Aravind" class="fa fa-git-square icon"></a>
+
+
+        </div>
+        <div class="icons" style="padding:14px;color:#363636">API used
+            <a href="https://developers.google.com/books" style="padding:0">
+                <i class="fa fa-cloud icon ap" style="font-size:24px;transform:translate(8px,2px)">
+                </i></a>
+        </div>
+    </footer>
+    {%endblock%}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <script src="jquery-3.6.0.min.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- test https://api.nytimes.com/svc/books/v3/reviews.json?isbn=9781524763138&api-key=4eqGqpcgPr09d47XDHGaU7UU2sX7ZFxo -->
+<!-- testapi= https://api.nytimes.com/svc/books/v3/lists/manga.json?api-key=4eqGqpcgPr09d47XDHGaU7UU2sX7ZFxo -->
+<!-- apikey = 4eqGqpcgPr09d47XDHGaU7UU2sX7ZFxo -->
+<!-- secret = NKBnltD2Bjr57OxI -->
+<!-- app id = 3aa3d0dc-12d5-42c1-a332-5acde867fe50 -->

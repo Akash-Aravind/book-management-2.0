@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block title %}{% trans "Sign In" %}{% endblock %}
+{% block navbar %}
+
+{%endblock%}
+{% block content %}
+<div class="conatiner total loginin">
+  <div style="display:flex;justify-content: center;">
+    <h1>{% trans "Sign In" %}</h1>
+  </div>
+
+
+  <form class="login" style="width:50%;margin:55px auto" method="POST" action="{% url 'account_login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+
+    <button class="primaryAction btn btn-dark card-btns" type="submit">{% trans "Sign In" %}</button><br>
+    {% blocktrans %}
+
+    <h6 style="margin-top: 10px;">Don't have an account?<a href="{{ signup_url }}" class="btn btn-dark card-btns"
+        style="margin-top: 10px;">sign
+        up</a></h6>
+    {% endblocktrans %}
+
+  </form>
+</div>
+{% endblock %}

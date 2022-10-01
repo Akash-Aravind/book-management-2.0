@@ -1,0 +1,31 @@
+{%extends "base.html"%}
+
+{%block title%}
+Details page
+{%endblock%}
+
+
+{%block content%}
+<div class="container detail-box">
+    <img src="{{bookinfo.volumeInfo.imageLinks.thumbnail}}" class="detail-img" alt="Loading..">
+    <div class="detail-cont">
+        <h3>Title&ensp;:&ensp;{{bookinfo.volumeInfo.title}}</h3>
+        <h3>Author&ensp;:&ensp;{{bookinfo.volumeInfo.authors.0}}</h3>
+        <h3>Published date&ensp;:&ensp;{{bookinfo.volumeInfo.publishedDate}}</h3>
+        <h3>Description&ensp;:</h3>
+        <h3 style="text-indent: 2cm;">{{bookinfo.volumeInfo.description}}</h3>
+        <h3>No of pages&ensp;:&ensp;{{bookinfo.volumeInfo.pageCount}}</h3>
+        <h3>Genre&ensp;:&ensp;{{bookinfo.volumeInfo.categories.0}}</h3>
+        <h3>Maturity&ensp;:&ensp;{{bookinfo.volumeInfo.maturityRating}}</h3>
+        <h3>Rating&ensp;:&ensp;{{bookinfo.volumeInfo.averageRating}}/5</h3>
+        <a class="btn btn-dark" href="{{bookinfo.accessInfo.webReaderLink}}">
+            <h4>Read now on google books</h4>
+        </a>
+    </div>
+</div>
+{%endblock%}
+
+
+
+
+<!--https://www.googleapis.com/books/v1/volumes?q=flowers&key=AIzaSyAJ8nHtE3NlGpfnhN1jTT_0FvC49dyf1bo  -->
