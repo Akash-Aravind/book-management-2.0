@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&ro#qndfdzamd+zccv0t2w%f(ynj)z#v#9@t!tg6o%svk$&l3m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', 'gleeful-chebakia-b8d642.netlify.app']
 
 
 # Application definition
@@ -52,8 +52,8 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_UNIQUE = True
 
-if not DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 
 MIDDLEWARE = [
